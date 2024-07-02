@@ -29,9 +29,10 @@ export const Table = <T,>({url, columns}: IProps<T>) => {
 
             const startCondition = filterStart ? (airedFrom ? airedFrom >= filterStart : true) : true;
             const endCondition = filterEnd ? (airedTo ? airedTo <= filterEnd : true) : true;
-            const dateOrderCondition = (airedFrom && airedTo) ? airedFrom <= airedTo : true;
+            const orderEndCondition = filterEnd ? (airedFrom ? airedFrom <= filterEnd : true) : true;
+            const orderStartCondition = filterStart ? (airedTo ? airedTo >= filterStart : true) : true;
 
-            return startCondition && endCondition && dateOrderCondition;
+            return startCondition && endCondition && orderEndCondition && orderStartCondition;
         }) as T[];
 
     return (
