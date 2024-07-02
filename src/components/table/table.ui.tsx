@@ -8,7 +8,7 @@ import {useState} from "react";
 import './table.css'
 
 
-export const Table = ({url, columns}: IProps) => {
+export const Table = <T,>({url, columns}: IProps<T>) => {
     const {data, options, setOptions, status} = useGetData(url);
 
     const [filters, setFilters] = useState({
@@ -32,7 +32,7 @@ export const Table = ({url, columns}: IProps) => {
             const dateOrderCondition = (airedFrom && airedTo) ? airedFrom <= airedTo : true;
 
             return startCondition && endCondition && dateOrderCondition;
-        });
+        }) as T[];
 
     return (
         <div className="table">

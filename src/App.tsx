@@ -1,16 +1,17 @@
 import {Table} from "./components/table";
+import {IColumns, IDataResponse} from "./components/table/table.types.ts";
 
 const App = () => {
-    const columns = [
+    const columns: IColumns<IDataResponse> = [
         {
             title: "Title",
             dataIndex: "title",
-            action: (row) => row.title,
+            action: (row) => row.title ? row.title : '-',
         },
         {
             title: "Season",
             dataIndex: "season",
-            action: (row) => row.season,
+            action: (row) => row.season ? row.season : '-',
         },
         {
             title: "Status",
@@ -25,12 +26,12 @@ const App = () => {
         {
             title: "Airing",
             dataIndex: "aired",
-            action: (row) => row.aired.string,
+            action: (row) => <p>{row.aired.string}</p>,
         },
         {
             title: "Popularity",
             dataIndex: "popularity",
-            action: (row) => row.popularity,
+            action: (row) => String(row.popularity),
         },
     ]
 

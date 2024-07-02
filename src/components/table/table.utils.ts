@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
-import {IData} from "./table.types.ts";
+import {IData, IDataArray} from "./table.types.ts";
 
 export const useGetData = (url: string) => {
-    const [data, setData] = useState<IData | null>(null);
+    const [data, setData] = useState<IData<IDataArray> | null>(null);
     const [options, setOptions] = useState({page: 1, limit: 5, order_by: "", sort: true})
     const [status, setStatus] = useState<'loading' | 'fulfilled' | 'error'>('loading');
 

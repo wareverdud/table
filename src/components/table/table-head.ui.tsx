@@ -2,7 +2,7 @@ import {IHeadProps} from "./table.types.ts";
 import arrowUp from './assets/up-arrow.svg';
 import arrowDown from './assets/down-arrow.svg';
 
-export const TableHead = ({columns, options, setOptions}: IHeadProps) => {
+export const TableHead = <T,>({columns, options, setOptions}: IHeadProps<T>) => {
     const handleSort = (dataIndex: string) => {
         if (options.order_by === dataIndex) {
             setOptions((prevState) => ({...prevState, sort: !prevState.sort}))
