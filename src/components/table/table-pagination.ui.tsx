@@ -13,6 +13,7 @@ export const TablePagination = ({page, setOptions, last_visible_page}: IPaginati
             {"<"}
         </button>
         <input
+            className="pagination-input"
             value={page}
             type="number"
             onChange={(event) => {

@@ -1,19 +1,15 @@
 import {IBodyProps} from "./table.types.ts";
 
-export const TableBody = ({data, columns, filters}: IBodyProps) => (
+export const TableBody = ({data, columns}: IBodyProps) => (
     <tbody>
-    {data.map((row, rowIndex) => {
-        console.log(row)
-        if (filters.rating === '' || filters.rating === row['rating']) {
-            return (
-                <tr key={rowIndex}>
-                    {columns.map((column) => {
-                        const displayedData = row[column.dataIndex] ? row[column.dataIndex] : "—";
-                        return <td key={column.dataIndex}>{displayedData}</td>;
-                    })}
-                </tr>
-            )
-        }
-    })}
+    {data.map((row, rowIndex) => (
+        <tr key={rowIndex}>
+            {columns.map((column) => {
+                const data = column.action(row)
+                const displayedData = data ? data : "—";
+                return <td key={column.dataIndex}>{displayedData}</td>;
+            })}
+        </tr>
+    ))}
     </tbody>
 )

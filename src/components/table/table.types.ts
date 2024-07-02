@@ -5,7 +5,7 @@ export type IProps = {
     columns: IColumns
 }
 
-export type IColumns = { title: string, dataIndex: string }[]
+export type IColumns = { title: string, dataIndex: string, action: (row: any) => string }[]
 
 export type IOptions = {
     page: number
@@ -22,7 +22,6 @@ export type IHeadProps = {
 export type IBodyProps = {
     data: Array<never>,
     columns: IColumns,
-    filters: IFilters
 }
 
 export type IPaginationProps = {
