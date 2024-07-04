@@ -1,1 +1,1 @@
-export { Table } from './table.ui.tsx'
+export { Table } from "./table.ui.tsx";
